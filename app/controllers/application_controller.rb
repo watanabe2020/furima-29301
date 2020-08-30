@@ -7,11 +7,4 @@ class ApplicationController < ActionController::Base
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
   end
-
 end
-
-
-
-
-heroku config:set BASIC_AUTH_USER="wawawa"
-heroku config:set BASIC_AUTH_PASSWORD="1234"
