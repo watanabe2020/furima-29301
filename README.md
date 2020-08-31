@@ -66,11 +66,12 @@ Things you may want to cover:
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
 | item   | references | null: false, foreign_key: true |
-|        |            |                                |
+
 
 ### Association
 - belongs_to :item
 - belongs_to :user
+- has_one :living_place
 
 ## living_place テーブル
 
@@ -85,4 +86,5 @@ Things you may want to cover:
 | phone_number  | string     | null: false                    |
 
 ### Association
-has_one :buyer
+belongs_to :buyer
+
