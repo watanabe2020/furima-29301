@@ -35,26 +35,30 @@ Things you may want to cover:
 | first_name      | string | null: false |
 | last_name_kana  | string | null: false |
 | first_name_kana | string | null: false |
-| email           | string | null: false |
 | birthday        | date   | null: false |
 
 ### Association
 
 - has_many :items
-- belongs_to:buyer
+- has_many :buyers
 
 ## items テーブル
 
-| Column              | Type    | Options     |
-| ------------------- | ------- | ----------- |
-| name                | string  | null: false |
-| price               | integer | null: false |
-| product_description | text    | null: false |
-|                     |         |             |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| user                | references | null: false, foreign_key: true |
+| name                | string     | null: false                    |
+| price               | integer    | null: false                    |
+| product_description | text       | null: false                    |
+| category_id         | integer    | null: false                    |
+| product_status_id   | integer    | null: false                    |
+| postage_id          | integer    | null: false                    |
+| ship_from_id        | integer    | null: false                    |
+| date_of_shipment_id | integer    | null: false                    |
 
 ### Association
 
-- belong_to :users
+- belong_to :user
 - has_one :buyer
 
 ## article テーブル
@@ -64,14 +68,14 @@ Things you may want to cover:
 | category_id         | integer | null: false |
 | product_status_id   | integer | null: false |
 | postage_id          | integer | null: false |
-| ship_from \_id      | integer | null: false |
+| ship_from_id        | integer | null: false |
 | date_of_shipment_id | integer | null: false |
 
 ### Association
 
 has_one :item
 
-## buyer テーブル
+## buyers テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -84,17 +88,18 @@ has_one :item
 - belongs_to :item
 - belongs_to :user
 
-## living place テーブル
+## living_place テーブル
 
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| postcode      | string  | null: false |
-| prefecture_id | integer | null: false |
-| city          | string  | null: false |
-| block         | string  | null: false |
-| building      | string  |             |
-| phone_number  | string  | null: false |
-|               |         |             |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| buyer         | references | null: false, foreign_key: true |
+| postcode      | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| block         | string     | null: false                    |
+| building      | string     |                                |
+| phone_number  | string     | null: false                    |
+
 
 ### Association
 
