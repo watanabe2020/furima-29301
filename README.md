@@ -81,7 +81,6 @@ Things you may want to cover:
 | block         | string     | null: false                    |
 | building      | string     | null: false                    |
 | phone_number  | integer    | null: false                    |
-|               |            |                                |
 
 
 ### Association
