@@ -57,23 +57,8 @@ Things you may want to cover:
 | date_of_shipment_id | integer    | null: false                    |
 
 ### Association
-
 - belong_to :user
 - has_one :buyer
-
-## article テーブル
-
-| Column              | Type    | Options     |
-| ------------------- | ------- | ----------- |
-| category_id         | integer | null: false |
-| product_status_id   | integer | null: false |
-| postage_id          | integer | null: false |
-| ship_from_id        | integer | null: false |
-| date_of_shipment_id | integer | null: false |
-
-### Association
-
-has_one :item
 
 ## buyers テーブル
 
@@ -84,7 +69,6 @@ has_one :item
 |        |            |                                |
 
 ### Association
-
 - belongs_to :item
 - belongs_to :user
 
@@ -100,7 +84,5 @@ has_one :item
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
 
-
 ### Association
-
 has_one :buyer
