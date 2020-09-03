@@ -19,4 +19,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :price, :product_description, :category_id, :product_status_id, :postage_id, :ship_from_id,:date_of_shipment_id)
   end
 end
-prefecture
