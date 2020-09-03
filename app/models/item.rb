@@ -8,6 +8,8 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one   :buyer
+  has_one_attached :image
+
 
   with_options presence: true do
     validates :name,length: {maximum: 40}
@@ -17,6 +19,7 @@ class Item < ApplicationRecord
     validates :product_status_id, numericality: { other_than: 1 } 
     validates :ship_from_id, numericality: { other_than: 1 } 
     validates :date_of_shipment_id, numericality: { other_than: 1 } 
+    validates :image
   end
 
 end
