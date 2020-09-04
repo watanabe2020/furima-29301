@@ -1,10 +1,10 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
-  belongs_to_active_hash :shipfrom
-  belongs_to_active_hash :productstatus
+  belongs_to_active_hash :ship_from
+  belongs_to_active_hash :product_status
   belongs_to_active_hash :postage
-  belongs_to_active_hash :dateofshipment
+  belongs_to_active_hash :date_of_shipment
 
   belongs_to :user
   has_one   :buyer
