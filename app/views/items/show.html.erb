@@ -26,8 +26,8 @@
     </div>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
- <% if user_signed_in? && current_user.id == item.user_id %>
-    <%= link_to '商品の編集',  edit_item_path , method: :get, class: "item-red-btn" %>
+  <% if user_signed_in? && current_user.id == item.user_id %>
+    <%= link_to '商品の編集', edit_item_path , method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
     <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
     <% else %>
@@ -53,7 +53,7 @@
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= item.product_status.name %></td> 
+          <td class="detail-value"><%= item.product_status.name%></td> 
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
@@ -65,31 +65,11 @@
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= item.date_of_shipment.name %></td>
+          <td class="detail-value"><%= item.date_of_shipment %></td>
         </tr>
       </tbody>
     </table>
     <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="option">
       <div class="favorite-btn">
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
