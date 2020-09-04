@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   def index
     @items  = Item.all
-    # @items =Item.find(params[:id])
   end
 
   def new
@@ -19,18 +18,29 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def show
     @item = Item.find(params[:id])
+    @item  = Item.where(id:params[:id])
   end
 
   def update
-
+    @item = Item.find(params[:id])
+    @item.update(user_params)
+    # binding.pry
+    if @item.valid?
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
   end
 
   private
