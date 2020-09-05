@@ -79,8 +79,6 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price is out of setting range")
     end
 
-    # @item.errors.full_messages
-    # bundle exec rspec spec/models/item_spec.rb
   end
 end
 
