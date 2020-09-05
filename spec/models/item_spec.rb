@@ -22,34 +22,34 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Product description can't be blank")
     end
 
-    it 'カテゴリーが空だと保存できないこと' do
-      @item.category_id = ''
+    it 'カテゴリーが--だと保存できないこと' do
+      @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank", 'Category is not a number')
+      expect(@item.errors.full_messages).to include("Category must be other than 1")
     end
 
-    it '商品の状態が空だと保存できないこと' do
-      @item.product_status_id = ''
+    it '商品の状態が--だと保存できないこと' do
+      @item.product_status_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Product status can't be blank", 'Product status is not a number')
+      expect(@item.errors.full_messages).to include("Product status must be other than 1")
     end
 
-    it '送料が空だと保存できないこと' do
-      @item.postage_id = ''
+    it '送料が--だと保存できないこと' do
+      @item.postage_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Postage can't be blank", 'Postage is not a number')
+      expect(@item.errors.full_messages).to include("Postage must be other than 1")
     end
 
-    it '発送元が空だと保存できないこと' do
-      @item.ship_from_id = ''
+    it '発送元が--だと保存できないこと' do
+      @item.ship_from_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Ship from can't be blank", 'Ship from is not a number')
+      expect(@item.errors.full_messages).to include("Ship from must be other than 0")
     end
 
-    it '発送日が空だと保存できないこと' do
-      @item.date_of_shipment_id = ''
+    it '発送日が__だと保存できないこと' do
+      @item.date_of_shipment_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Date of shipment can't be blank", 'Date of shipment is not a number')
+      expect(@item.errors.full_messages).to include("Date of shipment must be other than 1")
     end
 
     it '販売価格が空だと保存できないこと' do
