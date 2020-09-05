@@ -4,9 +4,12 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+
+// require("turbolinks").start()こいつbodyのみを読み込むことでブラウザを高速で動かしているただjsファイルを読み込むタイミングでbodyの外にあるためなんかおかしくなるから一旦切っておく
+
 require("@rails/activestorage").start()
 require("channels")
+require("../price")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
