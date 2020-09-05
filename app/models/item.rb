@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     validates :category_id, numericality: { other_than: 1 } 
     validates :product_status_id, numericality: { other_than: 1 } 
     validates :postage_id, numericality: { other_than: 1 } 
-    validates :ship_from_id, numericality: { other_than: 1 } 
+    validates :ship_from_id, numericality: { other_than: 0 } 
     validates :date_of_shipment_id, numericality: { other_than: 1 } 
     validates :image
   end
