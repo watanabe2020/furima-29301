@@ -16,6 +16,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :price, :product_description, :category_id, :product_status_id, :postage_id, :ship_from_id,:date_of_shipment_id)
+    params.require(:user).permit(:name, :price, :product_description, :category_id, :product_status_id, :postage_id, :ship_from_id, :date_of_shipment_id)
   end
 end

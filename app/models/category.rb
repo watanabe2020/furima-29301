@@ -1,5 +1,4 @@
 class Category < ActiveHash::Base
-
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: 'メンズ' },
@@ -11,5 +10,5 @@ class Category < ActiveHash::Base
     { id: 8, name: 'スポーツ・レジャー' },
     { id: 9, name: 'ハンドメイド' },
     { id: 10, name: 'その他' }
-              ]
+  ]
 end
