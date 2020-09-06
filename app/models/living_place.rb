@@ -1,0 +1,2 @@
+class LivingPlace < ApplicationRecord
+end
