@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def new
     @user = User.new
   end
@@ -15,7 +16,9 @@ class UsersController < ApplicationController
 
   private
 
+
+
   def user_params
-    params.require(:user).permit(:name, :price, :product_description, :category_id, :product_status_id, :postage_id, :ship_from_id, :date_of_shipment_id)
+    params.require(:user).permit(:nickname, :email, :last_name , :first_name, :last_name_kana, :first_name_kana, :birthday)
   end
 end
