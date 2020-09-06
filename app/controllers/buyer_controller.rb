@@ -2,8 +2,6 @@ class BuyerController < ApplicationController
   before_action :move_to_index
   before_action :current_user_cant_buy
 
-
-
   def index
     @buyer = Item.find(params[:item_id])
   end
