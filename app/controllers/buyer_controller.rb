@@ -6,6 +6,14 @@ class BuyerController < ApplicationController
     @buyer = Item.find(params[:item_id])
   end
 
+  def new
+    @buyer = Buyer.new
+  end
+
+  def create
+    @buyer = Buyer.create(buyer_paeams)
+  end
+  
 
 private
 def  current_user_cant_buy
@@ -20,5 +28,11 @@ def  move_to_index
     redirect_to new_user_session_path 
   end
 end
+
+private
+
+  def buyer_paeams
+    params.require(:buyer).permit().merge(:postcode,:ship_from_id,:city,:block,:building,:phone_number)
+  end
 
 end
