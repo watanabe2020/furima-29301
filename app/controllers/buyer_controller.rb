@@ -16,8 +16,6 @@ class BuyerController < ApplicationController
     @buyer_item = Item.find(params[:item_id])
     @buyer = UserInformation.new(buyer_params)
     
-    # binding.pry
-    
     if @buyer.valid?
       pay_item
       @buyer.save
@@ -36,10 +34,9 @@ def  current_user_cant_buy
 end
 
 def  sold_out_cant_buy
-    @buyer = Item.find(params[:item_id])
-    if Buyer.exists?(buyer_id)
+  if  @buyer.present?
     redirect_to root_path
-    end
+ end
 end
 
 def  move_to_index
