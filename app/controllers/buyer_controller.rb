@@ -3,17 +3,25 @@ class BuyerController < ApplicationController
   before_action :current_user_cant_buy
 
   def index
-    @buyer = Item.find(params[:item_id])
+    @buyer_item = Item.find(params[:item_id])
+    @buyer = UserInformation.new
+    
   end
 
   def new
-    @buyer = Buyer.new
   end
 
-  def create
-    @buyer = Buyer.create(buyer_paeams)
+  def create 
+    @buyer_item = Item.find(params[:item_id])
+    @buyer = UserInformation.new(buyer_params)
+    if @buyer.valid?
+      pay_item
+      @buyer.save
+      redirect_to root_path
+    else
+      render 'index'
+    end
   end
-  
 
 private
 def  current_user_cant_buy
@@ -31,8 +39,19 @@ end
 
 private
 
-  def buyer_paeams
-    params.require(:buyer).permit().merge(:postcode,:ship_from_id,:city,:block,:building,:phone_number)
+  def buyer_params
+    params.require(:user_information).permit(:buyer_id,:postcode,:ship_from_id,:city,:block,:building,:phone_number,:token,:item_id,:user_id)
   end
+
+  def pay_item
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
+    Payjp::Charge.create(
+      amount: buyer_paeams[:item.price],  
+      card: buyer_paeams[:token],    
+      currency:'jpy'                 
+    )
+  end
+
+
 
 end
