@@ -34,7 +34,7 @@ def  current_user_cant_buy
 end
 
 def  sold_out_cant_buy
-  if  @buyer.present?
+  if  @buyer.buyer.present?
     redirect_to root_path
  end
 end
