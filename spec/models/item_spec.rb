@@ -25,31 +25,31 @@ RSpec.describe Item, type: :model do
     it 'カテゴリーが--だと保存できないこと' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1")
+      expect(@item.errors.full_messages).to include('Category must be other than 1')
     end
 
     it '商品の状態が--だと保存できないこと' do
       @item.product_status_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Product status must be other than 1")
+      expect(@item.errors.full_messages).to include('Product status must be other than 1')
     end
 
     it '送料が--だと保存できないこと' do
       @item.postage_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Postage must be other than 1")
+      expect(@item.errors.full_messages).to include('Postage must be other than 1')
     end
 
     it '発送元が--だと保存できないこと' do
       @item.ship_from_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Ship from must be other than 0")
+      expect(@item.errors.full_messages).to include('Ship from must be other than 0')
     end
 
     it '発送日が__だと保存できないこと' do
       @item.date_of_shipment_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Date of shipment must be other than 1")
+      expect(@item.errors.full_messages).to include('Date of shipment must be other than 1')
     end
 
     it '販売価格が空だと保存できないこと' do
