@@ -70,16 +70,20 @@ RSpec.describe UserInformation, type: :model do
       @buyer.phone_number = ''
         @buyer.valid?
         expect(@buyer.errors.full_messages).to include("Phone number can't be blank", "Phone number 半角数字で入力してください")
-      
+    end
+
+    it '電話番号が11桁以上だと購入できない' do
+      @buyer.phone_number = '12345678910112'
+        @buyer.valid?
+        
+        
+        expect(@buyer.errors.full_messages).to include()
     end
 
     it 'トークンが空だと購入できない' do
       
       @buyer.token = ''
         @buyer.valid?
-        
-        
-        
         expect(@buyer.errors.full_messages).to include("Token can't be blank")
     end
 
@@ -88,6 +92,4 @@ RSpec.describe UserInformation, type: :model do
   end
 
   # bundle exec rspec spec/models/buyer_spec.rb 
-
-
   # user.errors.full_messages

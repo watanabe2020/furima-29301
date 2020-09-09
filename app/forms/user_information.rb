@@ -9,7 +9,8 @@ class UserInformation
     validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '全角で入力してください' }
     validates :block
     validates :token
-    validates :phone_number, format: { with: /\A[0-9]+\z/i, message: '半角数字で入力してください' }
+    validates :phone_number, format: { with: /\A[0-9]+\z/i, message: '半角数字で入力してください'}
+    validates :phone_number, length: { in: 6..20 }
   end
 
   def save
