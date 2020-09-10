@@ -11,6 +11,7 @@ class User < ApplicationRecord
     validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '全角で入力してください' }
     validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'カタカナで入力してください' }
     validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'カタカナで入力してください' }
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])\w{6,12}\z/i, message: '数字と小文字を必ず1文字使ってください' }
     validates :birthday
   end
 end
