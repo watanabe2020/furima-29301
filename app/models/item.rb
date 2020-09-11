@@ -23,4 +23,12 @@ class Item < ApplicationRecord
     validates :date_of_shipment_id, numericality: { other_than: 1 }
     validates :image
   end
+  
+  def self.search(search)
+    if search != ""
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
 end

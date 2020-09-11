@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :items do
     resources :buyer
+    collection do
+      post 'search'
+    end
   end
 
 end
