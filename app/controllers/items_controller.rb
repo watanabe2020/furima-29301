@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -42,8 +42,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
 
+  def search
+    @items = Item.search(params[:keyword])
+  end
+
+    private
+    
   def user_params
     params.require(:item).permit(:name, :price, :product_description, :category_id, :product_status_id, :postage_id, :ship_from_id, :date_of_shipment_id, :content, :image).merge(user_id: current_user.id)
   end
@@ -54,5 +59,6 @@ class ItemsController < ApplicationController
 
   def move_to_index
     redirect_to new_user_session_path unless user_signed_in?
-    end
+  end
+
 end
