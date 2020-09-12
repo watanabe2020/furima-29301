@@ -60,6 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
 end
 
 group :development do
@@ -80,3 +81,5 @@ gem 'payjp'
 gem 'gimei'
 
 gem "aws-sdk-s3", require: false
+
+gem 'rails-i18n'

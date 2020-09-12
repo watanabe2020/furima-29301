@@ -1,0 +1,24 @@
+ja:   #インデントが大事
+  activerecord: #クラス
+    attributes:  #属性
+      item:
+        name: 商品名
+        price: 金額
+        Priceis_out_of_setting_range: 金額が範囲外です
+        product_description: 商品説明
+        category_id: カテゴリー
+        product_status_id: 商品の状態
+        postage_id: 配送料の負担
+        ship_from_id: 発送元の地域
+        date_of_shipment_id: 発送までの日数 
+        image: 画像
+
+  activemodel:
+    attributes:
+      user_information: 
+        postcode: 郵便番号を
+        ship_from_id: お住まいの都道府県を入力してください
+        city: 市区町村
+        block: 番地
+        phone_number: 電話番号 
+        token: トークンが逃げました
