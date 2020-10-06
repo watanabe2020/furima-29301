@@ -3,6 +3,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :items
   has_many :buyers
+  has_many :favorites ,dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_items, through: :likes, source: :item
+
+  def already_favorited?(item)
+    self.favorites.exists?(item_id: item.id)
+  end
+
 
   with_options presence: true do
     validates :nickname, format: { with: /\A[a-z0-9]+\z/i, message: 'は半角文字で入力してください' }

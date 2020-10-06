@@ -29,11 +29,11 @@
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
   <% if user_signed_in? && current_user.id == @item.user_id %>
-   <% unless @item.buyer.present? %> 
+   <%# <% unless @item.buyer.present? %>  %>
     <%= link_to '商品の編集', edit_item_path , method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
     <%= link_to '削除', item_path , method: :delete, class:'item-destroy' %>
-    <% end %> 
+    <%# <% end %>  %>
     <% else %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <% unless @item.buyer.present? %> 
@@ -78,8 +78,21 @@
 
     <div class="option">
       <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+      <div class='star-btn'>
+      <% if user_signed_in? && current_user%>
+              <% if current_user.already_favorited?(@item) %>
+              <%= link_to item_favorites_path(@item), method: :delete do %>
+<%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+              <% end %>
+              <% else %>
+              <%= link_to  item_favorites_path(@item), method: :post do%>
+<%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+              <% end %>
+              <% end %>
+              <% end %>
+              
+            </div>
+        <span>お気に入り<%= @item.favorites.count %></span>
       </div>
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>

@@ -6,10 +6,10 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage
   belongs_to_active_hash :date_of_shipment
 
-  belongs_to :user
-  has_one :buyer
-  has_one_attached :image
-  has_one :buyer
+  belongs_to :user, dependent: :destroy
+  has_one :buyer, dependent: :destroy
+  has_one_attached :image, dependent: :destroy
+  has_many :favorites ,dependent: :destroy
 
   with_options presence: true do
     validates :name, length:        { maximum: 40 }

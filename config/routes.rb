@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "items#index"
   resources :users
   resources :items do
+    resource :favorites, only: [:create, :destroy]
     resources :buyer
     collection do
       post 'search'
